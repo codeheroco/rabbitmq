@@ -1,0 +1,11 @@
+var amqp=requiere('amqp');
+
+var conexion=ampq.createConnection({host: 'localhost'});
+
+conexion.on(ready function(){
+   conexion.queue('sencilla', {autoDelete:false), function(cola){
+      cola.suscribe(function(mensaje){
+         console.log('mensaje recibido ->%s', mensaje.data.toString( 'utf-8')
+         )};
+      )};
+  )};
